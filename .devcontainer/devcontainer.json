@@ -11,6 +11,11 @@
   },
   "customizations": {
     "codespaces": {
+      "repositories": {
+        "deivomaciel/Arggo-back": {
+          "permissions": "write-all"
+        }
+      },
       "openFiles": [
         "index.js"
       ]
