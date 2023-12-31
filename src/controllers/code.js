@@ -4,8 +4,6 @@ const router = Router()
 
 const generateCode = () => { // Essa função deve ficar em um service??
     let code = generateValue(4, ['number'])
-    console.log(code)
-    console.log(' ')
     return code
 }
 
