@@ -1,11 +1,17 @@
+// require('dotenv').config()
 const express = require('express')
+const bodyParser = require('body-parser')
+const codeController = require('./src/controllers/code')
+
 const app = express()
-const port = 3000
+const http = require('http')
+const server = http.createServer(app)
+const PORT = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(bodyParser.json())
+app.use('/code', codeController)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+server.listen(PORT, () => {
+    const { address, port } = server.address()
+    console.log(`Server running at http://${address}:${port}`)
 })
