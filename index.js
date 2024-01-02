@@ -11,6 +11,10 @@ const PORT = 3000
 app.use(bodyParser.json())
 app.use('/code', codeController)
 
+app.get('/', (req, res) => {
+    res.status(200).send("I'm alive!")
+})
+
 server.listen(PORT, () => {
     const { address, port } = server.address()
     console.log(`Server running at http://${address}:${port}`)
