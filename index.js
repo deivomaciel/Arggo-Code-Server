@@ -1,7 +1,8 @@
-// require('dotenv').config()
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const codeController = require('./src/controllers/code')
+const redis = require('./src/services/redisServices')
 
 const app = express()
 const http = require('http')
@@ -15,7 +16,8 @@ app.get('/', (req, res) => {
     res.status(200).send("I'm alive!")
 })
 
-server.listen(PORT, () => {
+server.listen(PORT, async () => {
+    await redis.listAllKeys()
     const { address, port } = server.address()
     console.log(`Server running at http://${address}:${port}`)
 })
