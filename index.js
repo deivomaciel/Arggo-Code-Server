@@ -10,14 +10,13 @@ const http = require('http')
 const server = http.createServer(app)
 const PORT = 3000
 
-app.use(bodyParser.json())
-app.use('/code', codeController)
-
 app.use(cors({
     origin: '*',
     optionsSuccessStatus: 200
 }))
 
+app.use(bodyParser.json())
+app.use('/code', codeController)
 
 app.get('/', (req, res) => {
     res.status(200).send("I'm alive!")
