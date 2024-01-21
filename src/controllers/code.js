@@ -18,7 +18,7 @@ router.get('/getcode', async (req, res) => {
     // }
 
     try {
-        redis.insertCode(code.toString(), code)
+        await redis.insertCode(code.toString(), code)
         res.status(200).send({ code })
 
     } catch (error) {
