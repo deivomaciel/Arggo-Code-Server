@@ -5,8 +5,8 @@ const kv = createClient({
     token: process.env.KV_REST_API_TOKEN
 })
 
-const insertCode = (code, value) => {
-    kv.set(code, value)
+const insertCode = async (code, value) => {
+    await kv.set(code, value)
     return 200
 }
 

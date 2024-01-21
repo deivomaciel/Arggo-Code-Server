@@ -38,7 +38,7 @@ router.post('/addcontent', async(req, res) => {
 
         const oldContent = await redis.getAllContent(code)
         content = oldContent + ',' + content
-        redis.insertCode(code, content)
+        await redis.insertCode(code, content)
         res.status(200).send({ msg: 'Content inserted successfully!' })
 
     } catch (error) {
