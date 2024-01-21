@@ -12,10 +12,10 @@ router.get('/getcode', async (req, res) => {
     let code = generateCode()
     let codeAlreadyExist = await redis.verifycode(code)
 
-    while(codeAlreadyExist) {
-        code = generateCode()
-        codeAlreadyExist = redis.verifycode(code)
-    }
+    // while(codeAlreadyExist) {
+    //     code = generateCode()
+    //     codeAlreadyExist = redis.verifycode(code)
+    // }
 
     try {
         redis.insertCode(code.toString(), code)

@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 server.listen(PORT, async () => {
-    await redis.listAllKeys()
+    // await redis.listAllKeys()
     const { address, port } = server.address()
     console.log(`Server running at http://${address}:${port}`)
 })
