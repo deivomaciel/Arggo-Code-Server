@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const codeController = require('./src/controllers/code')
 const redis = require('./src/services/redisServices')
@@ -11,6 +12,12 @@ const PORT = 3000
 
 app.use(bodyParser.json())
 app.use('/code', codeController)
+
+app.use(cors({
+    origin: '*',
+    optionsSuccessStatus: 200
+}))
+
 
 app.get('/', (req, res) => {
     res.status(200).send("I'm alive!")
