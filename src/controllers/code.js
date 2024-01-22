@@ -47,7 +47,7 @@ router.post('/addcontent', async(req, res) => {
     }
 })
 
-router.get('/getcontent', async (req, res) => {
+router.post('/getcontent', async (req, res) => {
     const { code } = req.body
 
     try {
